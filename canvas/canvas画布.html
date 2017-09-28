@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画布</title>
+	<style>
+		body{background: black}
+		#can1{background: white;}
+	</style>
+
+	<script>
+		window.onload=function(){
+			var oCC=document.getElementById('can1');
+			var oGG=oCC.getContext('2d');
+
+			oCC.onmousedown=function(ev){
+				var x=ev.clientX-oCC.offsetLeft;
+				var y=ev.clientY-oCC.offsetTop;
+				oGG.moveTo(x,y);
+				// oGG.moveTo(ev.clientX-oCC.offsetLeft,ev.clientY-oCC.offsetTop);
+				document.onmousemove=function(ev){
+					var mx=ev.clientX-oCC.offsetLeft;
+					var my=ev.clientY-oCC.offsetTop;
+					oGG.lineTo(mx,my);
+					oGG.strokeStyle="red";
+					// oGG.lineTo(ev.clientX-oCC.offsetLeft,ev.clientY-oCC.offsetTop);
+					oGG.stroke();	
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+			}
+				// oGG.lineTo(ev.clientX-oCC.offsetLeft,ev.clientY-oCC.offsetTop);
+				// oGG.fillStyle="red";
+				// oGG.fillRect(100,100,200,200);
+				// oGG.stroke();
+				// oGG.closePath()
+
+			}
+			
+		}
+
+	</script>
+</head>
+<body>
+	<canvas id="can1" width="400px" height="400px" ></canvas>
+</body>
+</html>

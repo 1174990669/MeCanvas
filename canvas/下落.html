@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自由下落</title>
+	<style>
+		body{background: black}
+		#can1{background: white;}
+	</style>
+	<script>
+		window.onload=function(){
+			var oCC=document.getElementById('can1');
+			var oGG=oCC.getContext('2d');
+			var num=0;
+			var no=100;
+			var mm=['20px','40px','60px','80px','100px'];
+
+			oGG.beginPath();
+			oGG.fillStyle="gray";
+			oGG.fillRect(20,0,100,100);
+			oGG.closePath();
+
+			oGG.beginPath();
+			oGG.fillStyle="lime";
+			oGG.fillRect(40,0,150,150);
+			oGG.closePath();
+
+			oGG.beginPath();
+			oGG.fillStyle="blue";
+			oGG.fillRect(60,0,200,200);
+			oGG.closePath();
+
+			// oGG.beginPath();
+			// oGG.fillStyle="orange";
+			// oGG.fillRect(80,50,100,100);
+			// oGG.closePath();
+
+			setInterval(function () {
+				if (mm[0]=='20px') {
+				num++;
+				oGG.clearRect(0,0,oCC.width,oCC.height);
+				oGG.fillRect(20,num,no,no);
+				console.log('aa')
+			}
+			else if(mm[1]=='40px'){
+				num++;
+				oGG.clearRect(0,0,oCC.width,oCC.height);
+				oGG.fillRect(40,num,no,no);
+				console.log('cc')
+			 } 
+				// num++;
+				// oGG.clearRect(0,0,oCC.width,oCC.height);
+				// oGG.fillRect(num+[mm],num,200,200);
+			},40)
+		}
+		
+
+	</script>
+</head>
+<body>
+	<canvas id="can1" width='800px' height="800px"></canvas>
+</body>
+</html>

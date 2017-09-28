@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+body{ background:black;}
+#c1{ background:white;}
+span{ color:white;}
+</style>
+<script>
+
+window.onload = function(){
+	var oC = document.getElementById('c1');
+	
+	var oGC = oC.getContext('2d');  
+	var grd=oGC.createRadialGradient(70,50,5,90,60,100);
+	grd.addColorStop(0,"red");
+	grd.addColorStop(1,"white");
+	oGC.fillStyle=grd;
+	// oGC.fillStyle = 'red';
+	// oGC.createRadialGradient()
+	// oGC.strokeStyle = 'blue';
+	// oGC.lineWidth = 10;
+	// ctx.fillRect(10,10,150,100)
+	// oGC.lineJoin = 'round';
+	
+	//oGC.fillRect(50,50,100,100);
+	// lineJoin 边角的类型
+	// bevel	创建斜角。
+	// round	创建圆角。
+	// miter	默认。创建尖角。
+	
+	oGC.fillRect(20,20,150,100);
+	
+};
+
+</script>
+</head>
+
+<body>
+<canvas id="c1" width="400" height="400">
+	<span>不支持canvas浏览器</span>
+</canvas> <!--默认：宽300 高150-->
+</body>
+</html>

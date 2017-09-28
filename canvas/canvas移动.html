@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas移动</title>
+	<style>
+		#can1{background:lime;}
+	</style>
+	<script>
+	window.onload=function(){
+		var oCan=document.getElementById('can1');
+		var oGc=oCan.getContext('2d');
+		var num=0;
+		var no=100;
+		var oC=250;
+		oGc.fillStyle="red";
+		oGc.fillRect(num,num,no,no);
+
+		setInterval(function () {
+			if (no<250) {
+				num++;
+				no++;
+				oGc.clearRect(0,0,oCan.width,oCan.height);
+				oGc.fillRect(num,num,no,no);
+			} else {
+				num--;
+				oC--;
+				oGc.clearRect(0,0,oCan.width,oCan.height);
+				oGc.fillRect(num,num,oC,oC);
+			 } 
+		},40)
+
+	}
+	</script>
+</head>
+<body>
+	<canvas id="can1" width="600px" height="600px"></canvas>
+</body>
+</html>

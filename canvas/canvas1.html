@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移动画</title>
+	<style>
+		#can1{width:1200px;height:600px;background:url(./img/tu.png)no-repeat;background-size:100% 100%;
+				position:relative;}
+		#can2{width:730px;height:388px;background:url(./img/hua2.png);background-size:100% 100%;
+				cursor:pointer;position:absolute;left:330px;top:47px;}
+	</style>
+</head>
+<body>
+ 	<script>
+ 	// fill Rect(L,T,W,H) 实心的形状 
+ 	// fillStyle="red"  添加颜色
+ 	// stroke Rect(L,T,W,H)  线框的形状
+ 	// lineWidth=10 线宽   
+ 	// beginPath  起始路径　　
+ 	// closePath  结束路径
+ 	// moveTo(X,Y)起点做标|/ lineTo(X,Y)下一个做标（画线使用）
+ 	// stroke()  画线路径（绘制已定义的路径,线的颜色）
+ 	// fill     填充当前绘图（图形颜色）
+ 	// clearRect(0,0,oC.width,oC.height);  清楚画布里面内容  
+ 	// 
+ 	// canvas.save();和canvas.restore();是两个相互匹配出现的，是用来保存画布的状态和取出保存的状态的
+ 	// beginPath  fill | stroke
+	// restore  fillStyle | strokeStyle
+	// lineCap = 'round';  结束时线两端的椭圆形
+	// lineJoin="bevel" 边角的类型\|对实心的形状无效
+	// bevel	创建斜角。
+	// round	创建圆角。
+	// miter	默认。创建尖角。
+ 	window.onload=function(){
+ 		var oCan=document.getElementById('can2');
+ 		var oCc= oCan.getContext('2d');
+
+ 		oCan.onmousedown=function(ev){
+ 			var x=ev.clientX-oCan.offsetLeft;
+ 			var y=ev.clientY-oCan.offsetTop;
+ 			oCc.moveTo(x,y);
+ 			console.log('ev.clientX'+ev.clientX);
+ 			// console.log("按下X"+x);
+ 			document.onmousemove=function(ev){
+ 				var mx=ev.clientX-oCan.offsetLeft;
+ 				var my=ev.clientY-oCan.offsetTop;
+ 				oCc.lineTo(mx,my);
+ 				oCc.stroke();
+ 				
+ 				// console.log("移动X"+mx);
+ 				// console.log("结束")
+ 			}
+ 			document.onmouseup=function(){
+ 				document.onmousemove=null;
+ 				document.onmouseup=null;
+ 			}
+ 		}
+ 		//oCc.fillStyle="red";  
+ 		// oCc.lineJoin = 'round';
+ 		// oCc.lineWidth= 10;
+ 		// oCc.fillRect(20,20,100,100);
+ 		// oCc.strokeRect(40,20,100,100);
+ 		// oCc.lineJoin="round";
+ 		// oCc.fillRect(100,100,100,100,);
+ 		
+ 	}
+ 	</script>
+	<div id="can1">
+		<canvas id="can2" width="730px" height="388px"></canvas>
+		<input type="button" value="点击清楚" id="but">
+	</div>
+ 
+</body>
+</html>
+
+<!-- var oC = document.getElementById('c1');
+	
+	var oGC = oC.getContext('2d');  
+	
+	oGC.save();
+	
+	oGC.fillStyle = 'red';
+	
+	oGC.beginPath();
+	
+	oGC.moveTo(100,100);
+	
+	oGC.lineTo(200,200);
+	
+	oGC.lineTo(300,200);
+	
+	oGC.closePath();
+	
+	oGC.fill();
+	
+	oGC.restore();
+	
+	// beginPath  fill | stroke
+	// restore  fillStyle | strokeStyle
+
+	oGC.strokeStyle = 'blue';
+	oGC.beginPath();
+	
+	oGC.moveTo(100,200);
+	
+	oGC.lineTo(200,300);
+	
+	oGC.lineTo(300,300);
+	
+	oGC.closePath();
+	
+	oGC.stroke(); -->

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画圆</title>
+	<style>
+		body{background: black;}
+		#can1{background: white;}
+	</style>
+
+	<script>
+		window.onload=function(){
+			var oCC=document.getElementById('can1');
+			// var oG=oC.getContext('2d');
+			var oG= oCC.getContext('2d');
+			oG.beginPath();
+			// oG.arc(200,150,100,0,2*Math.PI);
+			oG.arc(200,200,100,0,2*Math.PI);
+			oG.strokeStyle="red";
+			oG.fillStyle="green";
+			oG.fill();
+			oG.stroke();
+			oG.closePath();
+
+			oG.beginPath();
+			// oG.globalCompositeOperation = 'xor';
+			oG.fillStyle="red";
+			oG.strokeStyle="green";
+			oG.arc(200,200,80,0,360*Math.PI/170,true);
+			oG.fill()
+			oG.stroke();
+			oG.closePath();
+
+			oG.beginPath();
+			oG.globalCompositeOperation = 'xor';
+			oG.fillStyle="orange";
+			oG.strokeStyle="yellow";
+			oG.arc(200,200,50,0,360*Math.PI/170,true);
+			oG.fill()
+			oG.stroke();
+			oG.closePath();
+		}
+	</script>
+</head>
+<body>
+	<canvas id="can1" width='600px' height="400px"></canvas>
+</body>
+</html>

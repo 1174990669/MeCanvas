@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移动画</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		#can1{width:1200px;height:600px;background:url(./img/tu.png)no-repeat;background-size:100% 100%;
+				position:relative;}
+		#can2{width:730px;height:388px;background:url(./img/hua2.png);background-size:100% 100%;transition:2s;
+				cursor:url(http://yawzhou.com/images/pen.png),auto;position:absolute;left:330px;top:47px;}
+		#but{width:100px;height:40px;background:gray;cursor:pointer;position:absolute;left:938px;top:68px;
+			border:1px solid black;font-size:20px;color:white;}
+	</style>
+</head>
+<body>
+ 	<script>
+ 	window.onload=function(){
+ 		var oCan=document.getElementById('can2');
+ 		var oCc= oCan.getContext('2d');
+ 		var oBut=document.getElementById('but');
+
+ 		oCan.onmousedown=function(ev){
+ 			var x=ev.clientX-oCan.offsetLeft;
+ 			var y=ev.clientY-oCan.offsetTop;
+ 			oCc.beginPath();
+ 			oCc.moveTo(x,y);
+ 			// console.log('ev.clientX'+ev.clientX);
+ 			document.onmousemove=function(ev){
+ 				var mx=ev.clientX-oCan.offsetLeft;
+ 				var my=ev.clientY-oCan.offsetTop;
+ 				oCc.lineTo(mx,my);
+ 				oCc.strokeStyle='red';
+ 				// oCc.closePath();
+ 				oCc.stroke();
+ 				// console.log("结束")
+ 			}
+ 			document.onmouseup=function(){
+ 				document.onmousemove=null;
+ 				document.onmouseup=null;
+ 			}
+ 			// oBut.onclick=function(){
+ 				// oCc.clearRect(0,0,oCan.width,oCan.height);
+ 		 		// }
+ 		}
+ 		var disX=0;
+		var disY=0;
+		 $('#but').mousedown(function(e){  //mousedow 鼠标按下
+			disX=e.pageX-$(this).offset().left;
+			disY=e.pageY-$(this).offset().top;
+				$(document).mousemove(function(e){ //mousemove 鼠标移动
+					$('#but').css('left',e.pageX-disX);
+					$('#but').css('top',e.pageY-disY);
+					oCc.clearRect(0,0,oCan.width,oCan.height);
+						$(document).mouseup(function(){  //mouseup 鼠标移开
+							$(document).off();
+				});
+			});
+			return false;
+		});
+ 	}
+ 	</script>
+	<div id="can1">
+		<canvas id="can2" width="730px" height="388px"></canvas>
+		<input type="button" value="黑板擦" id="but">
+	</div>
+ 
+</body>
+</html>

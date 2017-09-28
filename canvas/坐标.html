@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>坐标</title>
+	<style>
+		div{width: 200px;height: 200px;background: red;}
+	</style>
+	<script>
+		window.onload=function(){
+			var oDiv=document.getElementById('div1');
+		document.onmousedown=function(ev){
+			var x=ev.clientX;
+			var y=ev.clientY;
+			alert("X 坐标: " + x + ", Y 坐标: " + y)
+		}
+
+		
+		}
+		
+	</script>
+</head>
+<body>
+	<div id="div1">12</div>
+</body>
+</html>

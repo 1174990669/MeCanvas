@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标划线</title>
+	<style>
+		body{background:black;}
+		#can1{background: white;}
+	</style>
+	<script>
+
+	window.onload=function(){
+		var oCc=document.getElementById('can1');
+		var oBut=document.getElementById('but');
+		var oGc=oCc.getContext('2d');
+
+		oCc.onmousedown=function(ev){
+			oGc.moveTo(ev.clientX-oCc.offsetLeft,ev.clientY-oCc.offsetTop);
+			document.onmousemove=function(ev){
+				oGc.lineTo(ev.clientX-oCc.offsetLeft,ev.clientY-oCc.offsetTop);
+				oGc.stroke();
+			}
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+
+			}
+			
+		}
+		oBut.onclick=function(){
+				// clearRect(0,0,oCc.swidth,oCc.height)
+				// alert(1)
+				oGc.clearRect(0,0,oCc.width,oCc.height);
+				// clearRect(0,0,oC.swidth,oC.height)
+			}
+	}
+	</script>
+</head>
+<body>
+	<canvas id="can1" width='400px' height='400px'>
+		
+	</canvas>
+	<input type="button" value="清楚" id="but">
+</body>
+</html>
