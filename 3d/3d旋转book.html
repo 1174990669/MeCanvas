@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转</title>
+	<style>
+		#one{width:600px;height:600px;border:1px solid lime;margin:100px auto;}
+		#two{position:relative;transform-style:preserve-3d;transform-origin:50% 50% 50px;
+			transform:rotateX(0deg) rotateY(-20deg);transition:1s;}
+		#two div{width:100px;height:100px;position:absolute;left:200px;top:200px;}
+		#two div:nth-of-type(1){background: green;}
+		#two div:nth-of-type(2){background: orange;top:200px;transform:rotateX(-90deg);
+				transform-origin:bottom;}
+		#two div:nth-of-type(3){background: pink;left:200px;transform:rotateY(-90deg);
+				transform-origin:left;}
+		#two div:nth-of-type(4){background: purple;top:200px;transform:rotateX(90deg);
+				transform-origin:top;}
+		#two div:nth-of-type(5){background: blue;left:200px;transform:rotateY(90deg);
+				transform-origin:right;}
+		#two div:nth-of-type(6){background: lime;transform:translateZ(100px);}
+	</style>
+</head>
+<body>
+	<div id="one">
+		<div id="two">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+	</div>
+	<script>
+		var  oTwo=document.getElementById('two');
+		var num = [0,90,-90,180,-60,90,-90,60,-60];
+		var nub = [60,90,-90,180,-60,-180,0,-70,70];
+		// var  num=[0,90,-90,180,-180,120,-120,60,-60,30,-30,];
+		// var nub=[360,90,-90,180,-360,-180,0,-270,270];
+		document.onclick=function(){
+			var numm=Math.floor(Math.random()*num.length);
+			var nubb=Math.floor(Math.random()*num.length);
+			oTwo.style.top='200px';
+			// oTwo.style.transform='rotateY('+nun[numm]+'deg)'+'rotateX('+nub=[nubb]+'deg)';
+			oTwo.style.transform = 'rotateY('+num[numm]+'deg)'+'rotateX('+nub[nubb]+'deg)';
+		}
+	</script>
+</body>
+</html>

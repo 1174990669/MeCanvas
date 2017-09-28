@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转</title>
+	<style>
+		.head{
+			width:800px;
+			height:800px;
+			border:1px solid lime;
+			margin:350px auto;
+			perspective:1000px;
+
+		}
+	
+		.body{
+			width:400px;
+			height:400px;
+			position:relative;
+			top:100px;
+			left:100px;
+			transform-style:preserve-3d;
+			/*transform-origin:50% 50% 0px;*/
+			transform-origin: 50% 50% 0px;
+			transform: rotateX(26deg) rotateY(-26deg);
+		}
+		.body div{
+			width:400px;
+			height:400px;
+			position:absolute;
+		}
+
+		.body div:nth-of-type(1){background:url(./img/f1.png)no-repeat;background-size:100% 100%;}
+			/*#div1{background: url(./img/tu1.png)no-repeat;background-size:100% 100%;}*/
+		.body div:nth-of-type(2){background:url(./img/f2.png)no-repeat;background-size:100% 100%;
+				top:-300px;transform: rotateX(-90deg);transform-origin:bottom;
+			}
+	/*	#div2{background: url(./img/tu2.png)no-repeat;background-size:100% 100%;
+				top:-200px;transform: rotateX(-90deg);transform-origin: bottom;}*/
+
+		.body div:nth-of-type(3){background:url(./img/f3.png)no-repeat;background-size:100% 100%;
+			left:-300px;transform:rotateY(-90deg);transform-origin:left;}
+	/*	#div3{background: url(./img/tu3.png)no-repeat;background-size:100% 100%;
+				left:200px;transform:rotateY(-90deg);transform-origin:left;}*/
+
+		.body div:nth-of-type(4){background:url(./img/f4.png);background-size:100% 100%;}
+
+		.body div:nth-of-type(5){background:url(./img/f5.png);background-size:100% 100%;}
+		.body div:nth-of-type(6){background:url(./img/f6.png);background-size:100% 100%;}
+	</style>
+</head>
+<body>
+	<div  class="head">
+		<div class="body">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<!-- <div></div> -->
+			<!-- <img src="./img/f1.png" alt="#">
+			<img src="./img/f2.png" alt="#">
+			<img src="./img/f3.png" alt="#">
+			<img src="./img/f4.png" alt="#">
+			<img src="./img/f5.png" alt="#">
+			<img src="./img/f6.png" alt="#"> -->
+		</div>
+	</div>
+</body>
+</html>

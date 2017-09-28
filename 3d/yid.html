@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动</title>
+	<style>
+		 *{ margin:0px; padding:0px;}
+	 	#Img{ position:absolute; top:0px; left:0px;}
+	 	#Main{ background-color:#F60; width:1177px; height:570px;}
+	</style>
+</head>
+<body>
+	<div id="Main">
+      <img src="./img/tu2.png" id="Img"/>
+  	</div>
+
+  	<script>
+  		window.onload=Main;
+  //全局坐标变量
+   var x="";
+   var y="";
+   //定位图片位置
+   function GetMouse(oEvent)
+   {
+     x=oEvent.clientX;
+     y=oEvent.clientY;
+    document.getElementById("Img").style.left=(parseInt(x)-100)+"px";
+    document.getElementById("Img").style.top=y+"px";
+   }
+  //入口
+  function Main()
+  {
+    var ele=document.getElementById("Main");
+    //注册鼠标移动事件
+    ele.onmousemove=function(){GetMouse(event);}
+    // 注册鼠标按下事件
+    ele.onmousedown=function(){ChangeBg("Img","./img/tu1.png");}
+    //注册鼠标弹回事件
+    ele.onmouseup=function(){ChangeBg("Img","./img/tu3.png");}
+   }
+  //图片变化
+  function ChangeBg(id,url)
+  {
+    document.getElementById(id).src=url;
+  }
+
+  	</script>
+</body>
+</html>
